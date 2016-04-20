@@ -9,6 +9,7 @@ output: html_document
 # Clean-up
 rm(list=ls())
 #grafics.off
+#any comment
 
 # Run start
 Sys.time()
