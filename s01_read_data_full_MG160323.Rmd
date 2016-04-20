@@ -1,0 +1,79 @@
+---
+title: "Read data"
+author: "Mae Goldgraben"
+output: html_document
+---
+
+```{r set_wd}
+
+# Clean-up
+rm(list=ls())
+#grafics.off
+
+# Run start
+Sys.time()
+
+# Set root working folder
+library(knitr)
+
+opts_knit$set(root.dir = "C:/MaeLocalAnalysis/Mar_R_proc/")
+#setwd ("C:/MaeLocalAnalysis/Mar_R_proc/")
+
+
+```
+
+# read_data
+
+```{r read_data}
+
+samples.df <- read.table("data/CCLG-full-samples.txt", header=TRUE, row.names=1, sep="\t", quote="")
+
+gt.df <- read.table("data/CCLG-fullv3-Feb2016_filterV1_GT_biallelic_add.txt", header=TRUE, row.names=1, sep="\t", quote="")
+
+gq.df <- read.table("data/CCLG-fullv3-Feb2016_filterV1_GQ_biallelic.txt", header=TRUE, row.names=1, sep="\t", quote="")
+
+dp.df <- read.table("data/CCLG-fullv3-Feb2016_filterV1_DP_biallelic.txt", header=TRUE, row.names=1, sep="\t", quote="")
+
+vv.df <- read.table("data/CCLG-fullv3-Feb2016_filterV1_VV_biallelic.txt", header=TRUE, row.names=1, sep="\t", quote="")
+
+```
+
+# check_data
+
+```{r check_data}
+
+dim(samples.df)
+samples.df[1:5,1:3]
+
+dim(gt.df)
+gt.df[1:5,1:3]
+
+dim(gq.df)
+gq.df[1:5,1:3]
+
+dim(dp.df)
+dp.df[1:5,1:3]
+
+dim(vv.df)
+colnames(vv.df)
+str(vv.df)
+vv.df[1:5,1:3]
+
+```
+
+# save_data
+
+```{r save_data}
+
+save.image(file="data/cclg_full_raw.RData")
+
+```
+
+# final_section
+
+```{r final_section}
+
+sessionInfo()
+Sys.time()
+  
+```
